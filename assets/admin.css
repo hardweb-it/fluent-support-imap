@@ -1,0 +1,319 @@
+/* ============================================
+   FS IMAP Fetcher - Pannello iniettato
+   ============================================ */
+
+#fs-imap-injected-panel {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.fs-imap-card-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid #e2e8f0;
+    background: #fafbfc;
+    border-radius: 8px 8px 0 0;
+}
+
+.fs-imap-card-header h3 {
+    margin: 0 0 4px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a202c;
+}
+
+.fs-imap-subtitle {
+    font-size: 13px;
+    color: #718096;
+}
+
+.fs-imap-card-body {
+    padding: 24px;
+}
+
+/* ============================================
+   Form
+   ============================================ */
+
+.fs-imap-form {
+    max-width: 560px;
+}
+
+.fs-imap-row {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    gap: 16px;
+}
+
+.fs-imap-label {
+    flex: 0 0 160px;
+    padding-top: 8px;
+    font-weight: 500;
+    color: #4a5568;
+    font-size: 14px;
+}
+
+.fs-imap-control {
+    flex: 1;
+    min-width: 0;
+}
+
+.fs-imap-control input[type="text"],
+.fs-imap-control input[type="number"],
+.fs-imap-control input[type="password"],
+.fs-imap-control select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.fs-imap-control input:focus,
+.fs-imap-control select:focus {
+    border-color: #7742e6;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(119, 66, 230, 0.12);
+}
+
+.fs-imap-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding-top: 8px;
+}
+
+.fs-imap-toggle input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #7742e6;
+    cursor: pointer;
+}
+
+.fs-imap-hint {
+    margin: 6px 0 0 0;
+    font-size: 12px;
+    color: #856404;
+    background: #fff3cd;
+    border-left: 3px solid #ffc107;
+    padding: 8px 10px;
+    border-radius: 3px;
+    line-height: 1.4;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+
+.fs-imap-actions {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid #edf2f7;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.fs-imap-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.5;
+    border: 1px solid #cbd5e0;
+    background: #fff;
+    color: #2d3748;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-decoration: none;
+    font-family: inherit;
+}
+
+.fs-imap-btn:hover {
+    background: #f7fafc;
+    border-color: #a0aec0;
+}
+
+.fs-imap-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.fs-imap-btn-primary {
+    background: #7742e6;
+    color: #fff;
+    border-color: #7742e6;
+}
+
+.fs-imap-btn-primary:hover {
+    background: #6433d4;
+    border-color: #6433d4;
+}
+
+.fs-imap-btn-success {
+    background: #38a169;
+    color: #fff;
+    border-color: #38a169;
+}
+
+.fs-imap-btn-success:hover {
+    background: #2f855a;
+    border-color: #2f855a;
+}
+
+.fs-imap-btn-text {
+    background: transparent;
+    border: none;
+    color: #7742e6;
+    padding: 4px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.fs-imap-btn-text:hover {
+    background: rgba(119, 66, 230, 0.08);
+}
+
+/* ============================================
+   Status / warning
+   ============================================ */
+
+.fs-imap-warning {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    color: #856404;
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 13px;
+}
+
+.fs-imap-status {
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* ============================================
+   Logs section
+   ============================================ */
+
+.fs-imap-logs-section {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #edf2f7;
+}
+
+.fs-imap-logs-section h4 {
+    margin: 0 0 12px 0;
+    color: #4a5568;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fs-imap-verbose-toggle {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.fs-imap-verbose-hint {
+    margin: 0;
+    font-size: 12px;
+    color: #718096;
+    flex-basis: 100%;
+}
+
+#fs-imap-logs {
+    max-height: 360px;
+    overflow-y: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+}
+
+.fs-imap-logs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.fs-imap-logs-table thead {
+    position: sticky;
+    top: 0;
+    background: #f7fafc;
+    z-index: 1;
+}
+
+.fs-imap-logs-table th {
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom: 2px solid #e2e8f0;
+    color: #718096;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.fs-imap-logs-table td {
+    padding: 7px 12px;
+    border-bottom: 1px solid #edf2f7;
+    vertical-align: top;
+    color: #2d3748;
+}
+
+.fs-imap-logs-table tr:last-child td {
+    border-bottom: none;
+}
+
+.fs-imap-log-time {
+    white-space: nowrap;
+    color: #718096;
+    font-size: 11px;
+    width: 150px;
+    font-family: monospace;
+}
+
+.fs-imap-log-level {
+    width: 70px;
+    font-weight: 600;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.fs-imap-level-error td {
+    background: #fff5f5;
+}
+
+.fs-imap-level-error .fs-imap-log-level {
+    color: #c53030;
+}
+
+.fs-imap-level-warning td {
+    background: #fffff0;
+}
+
+.fs-imap-level-warning .fs-imap-log-level {
+    color: #b7791f;
+}
+
+.fs-imap-level-info .fs-imap-log-level {
+    color: #2b6cb0;
+}

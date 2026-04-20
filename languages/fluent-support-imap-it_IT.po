@@ -1,0 +1,323 @@
+# Italian translation for Fluent Support IMAP Fetcher
+# Copyright (C) 2026 Hardweb
+msgid ""
+msgstr ""
+"Project-Id-Version: Fluent Support IMAP Fetcher 1.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-04-08 10:00+0200\n"
+"Last-Translator: Hardweb\n"
+"Language-Team: Italian\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Manual\n"
+
+#: fluent-support-imap.php
+msgid "%s requires Fluent Support to be active."
+msgstr "%s richiede che Fluent Support sia attivo."
+
+#: fluent-support-imap.php
+msgid "IMAP Fetcher"
+msgstr "IMAP Fetcher"
+
+#: fluent-support-imap.php
+msgid "Fetch emails via IMAP every few minutes — alternative to email piping"
+msgstr "Recupera le email via IMAP ogni pochi minuti — alternativa al piping"
+
+#: fluent-support-imap.php
+msgid "<strong>Warning:</strong> The PHP IMAP extension is not installed on the server. Contact your hosting provider to enable it."
+msgstr "<strong>Attenzione:</strong> L'estensione PHP IMAP non è installata sul server. Contatta il tuo hosting per abilitarla."
+
+#: fluent-support-imap.php
+msgid "IMAP Server"
+msgstr "Server IMAP"
+
+#: fluent-support-imap.php
+msgid "Port"
+msgstr "Porta"
+
+#: fluent-support-imap.php
+msgid "Username"
+msgstr "Username"
+
+#: fluent-support-imap.php
+msgid "Password"
+msgstr "Password"
+
+#: fluent-support-imap.php
+msgid "Encryption"
+msgstr "Crittografia"
+
+#: fluent-support-imap.php
+msgid "Enabled"
+msgstr "Abilitato"
+
+#: fluent-support-imap.php
+msgid "Interval (minutes)"
+msgstr "Intervallo (minuti)"
+
+#: fluent-support-imap.php
+msgid "mail.yourdomain.com"
+msgstr "mail.tuodominio.it"
+
+#: fluent-support-imap.php
+msgid "support@yourdomain.com"
+msgstr "supporto@tuodominio.it"
+
+#: fluent-support-imap.php
+msgid "SSL (recommended)"
+msgstr "SSL (consigliato)"
+
+#: fluent-support-imap.php
+msgid "TLS"
+msgstr "TLS"
+
+#: fluent-support-imap.php
+msgid "None"
+msgstr "Nessuna"
+
+#: fluent-support-imap.php
+msgid "Enable automatic fetch"
+msgstr "Attiva il fetch automatico"
+
+#: fluent-support-imap.php
+msgid "⚠️ The actual fetch frequency depends on how often the WP Cron of the site runs. If you set a value below 5, the fetch may still occur every 5 minutes (minimum cron interval)."
+msgstr "⚠️ Il fetch reale dipende da quanto spesso gira il WP Cron del sito. Se imposti un valore inferiore a 5, il fetch potrebbe comunque avvenire ogni 5 minuti (intervallo minimo del cron)."
+
+#: fluent-support-imap.php
+msgid "Save Configuration"
+msgstr "Salva Configurazione"
+
+#: fluent-support-imap.php
+msgid "Test Connection"
+msgstr "Test Connessione"
+
+#: fluent-support-imap.php
+msgid "Fetch Now"
+msgstr "Fetch Adesso"
+
+#: fluent-support-imap.php
+msgid "Refresh"
+msgstr "Aggiorna"
+
+#: fluent-support-imap.php
+msgid "Saving..."
+msgstr "Salvataggio..."
+
+#: fluent-support-imap.php
+msgid "Testing..."
+msgstr "Test in corso..."
+
+#: fluent-support-imap.php
+msgid "Fetching..."
+msgstr "Recupero..."
+
+#: fluent-support-imap.php
+msgid "Configuration saved!"
+msgstr "Configurazione salvata!"
+
+#: fluent-support-imap.php
+msgid "Save error"
+msgstr "Errore nel salvataggio"
+
+#: fluent-support-imap.php
+msgid "Connection test in progress..."
+msgstr "Test connessione in corso..."
+
+#: fluent-support-imap.php
+msgid "Connection successful! Emails in mailbox: %d"
+msgstr "Connessione riuscita! Email in casella: %d"
+
+#: fluent-support-imap.php
+msgid "Test failed"
+msgstr "Test fallito"
+
+#: fluent-support-imap.php
+msgid "Test error"
+msgstr "Errore nel test"
+
+#: fluent-support-imap.php
+msgid "Email fetch in progress, this may take a few seconds..."
+msgstr "Recupero email in corso, potrebbe richiedere qualche secondo..."
+
+#: fluent-support-imap.php
+msgid "Fetch completed: %total% emails found, %processed% processed, %skipped% skipped, %errors% errors"
+msgstr "Fetch completato: %total% email trovate, %processed% processate, %skipped% saltate, %errors% errori"
+
+#: fluent-support-imap.php
+msgid "Fetch error"
+msgstr "Errore nel fetch"
+
+#: fluent-support-imap.php
+msgid "Error"
+msgstr "Errore"
+
+#: fluent-support-imap.php
+msgid "Recent Logs"
+msgstr "Log Recenti"
+
+#: fluent-support-imap.php
+msgid "Loading..."
+msgstr "Caricamento..."
+
+#: fluent-support-imap.php
+msgid "No logs available"
+msgstr "Nessun log disponibile"
+
+#: fluent-support-imap.php
+msgid "Error loading logs"
+msgstr "Errore caricamento log"
+
+#: fluent-support-imap.php
+msgid "Date"
+msgstr "Data"
+
+#: fluent-support-imap.php
+msgid "Level"
+msgstr "Livello"
+
+#: fluent-support-imap.php
+msgid "Message"
+msgstr "Messaggio"
+
+#: app/Http/Controllers/ImapSettingsController.php
+msgid "IMAP config updated for MailBox #%d"
+msgstr "Configurazione IMAP aggiornata per la casella #%d"
+
+#: app/Http/Controllers/ImapSettingsController.php
+msgid "IMAP configuration saved successfully"
+msgstr "Configurazione IMAP salvata con successo"
+
+#: app/Http/Controllers/ImapSettingsController.php
+msgid "Please save the IMAP configuration first"
+msgstr "Salva prima la configurazione IMAP"
+
+#: app/Http/Controllers/ImapSettingsController.php
+msgid "Connection test failed for MailBox #%1$d: %2$s"
+msgstr "Test connessione fallito per la casella #%1$d: %2$s"
+
+#: app/Http/Controllers/ImapSettingsController.php
+msgid "Connection test successful for MailBox #%d"
+msgstr "Test connessione riuscito per la casella #%d"
+
+#: app/Http/Controllers/ImapSettingsController.php
+msgid "Fetch completed"
+msgstr "Fetch completato"
+
+#: app/Http/Controllers/ImapSettingsController.php
+msgid "Logs cleared"
+msgstr "Log cancellati"
+
+#: app/Services/ImapConnector.php
+msgid "PHP IMAP extension is not installed on the server."
+msgstr "L'estensione PHP IMAP non è installata sul server."
+
+#: app/Services/ImapConnector.php
+msgid "IMAP configuration incomplete."
+msgstr "Configurazione IMAP incompleta."
+
+#: app/Services/ImapConnector.php
+msgid "IMAP connection failed: %s"
+msgstr "Connessione IMAP fallita: %s"
+
+#: app/Services/ImapConnector.php
+msgid "IMAP connection successful!"
+msgstr "Connessione IMAP riuscita!"
+
+#: app/Services/ImapConnector.php
+msgid "No active IMAP connection."
+msgstr "Nessuna connessione IMAP attiva."
+
+#: app/Services/ImapConnector.php
+msgid "Email search error: %s"
+msgstr "Errore ricerca email: %s"
+
+#: app/Services/ImapConnector.php
+msgid "Cannot read email headers #%d"
+msgstr "Impossibile leggere gli header dell'email #%d"
+
+#: app/Services/EmailProcessor.php
+msgid "Email without sender"
+msgstr "Email senza mittente"
+
+#: app/Services/EmailProcessor.php
+msgid "Invalid sender email: %s"
+msgstr "Email mittente non valida: %s"
+
+#: app/Services/EmailProcessor.php
+msgid "Email sent from the same mailbox, ignored"
+msgstr "Email inviata dalla stessa casella, ignorata"
+
+#: app/Services/EmailProcessor.php
+msgid "(No subject)"
+msgstr "(Nessun oggetto)"
+
+#: app/Services/EmailProcessor.php
+msgid "Email already processed (message_id: %s)"
+msgstr "Email già processata (message_id: %s)"
+
+#: app/Services/EmailProcessor.php
+msgid "Customer blocked/inactive (%1$s): %2$s"
+msgstr "Cliente bloccato/inattivo (%1$s): %2$s"
+
+#: app/Services/EmailProcessor.php
+msgid "Duplicate ticket by content"
+msgstr "Ticket duplicato per contenuto"
+
+#: app/Services/EmailProcessor.php
+msgid "Ticket creation error"
+msgstr "Errore creazione ticket"
+
+#: app/Services/EmailProcessor.php
+msgid "New ticket #%1$d created by %2$s: %3$s"
+msgstr "Nuovo ticket #%1$d creato da %2$s: %3$s"
+
+#: app/Services/EmailProcessor.php
+msgid "Duplicate response"
+msgstr "Risposta duplicata"
+
+#: app/Services/EmailProcessor.php
+msgid "Response creation error"
+msgstr "Errore creazione risposta"
+
+#: app/Services/EmailProcessor.php
+msgid "Response added to ticket #%1$d by %2$s"
+msgstr "Risposta aggiunta al ticket #%1$d da %2$s"
+
+#: app/Hooks/CronHandler.php
+msgid "Every 5 minutes"
+msgstr "Ogni 5 minuti"
+
+#: app/Hooks/CronHandler.php
+msgid "Fetch already running, skipping."
+msgstr "Fetch già in esecuzione, salto."
+
+#: app/Hooks/CronHandler.php
+msgid "IMAP config missing for MailBox #%d"
+msgstr "Configurazione IMAP mancante per la casella #%d"
+
+#: app/Hooks/CronHandler.php
+msgid "IMAP config missing"
+msgstr "Configurazione IMAP mancante"
+
+#: app/Hooks/CronHandler.php
+msgid "IMAP connection error for MailBox #%1$d: %2$s"
+msgstr "Errore connessione IMAP per la casella #%1$d: %2$s"
+
+#: app/Hooks/CronHandler.php
+msgid "IMAP connection successful for MailBox #%d"
+msgstr "Connessione IMAP riuscita per la casella #%d"
+
+#: app/Hooks/CronHandler.php
+msgid "Email fetch error for MailBox #%1$d: %2$s"
+msgstr "Errore fetch email per la casella #%1$d: %2$s"
+
+#: app/Hooks/CronHandler.php
+msgid "Email processing error: %s"
+msgstr "Errore processamento email: %s"
+
+#: app/Hooks/CronHandler.php
+msgid "MailBox #%1$d: %2$d emails found, %3$d processed, %4$d skipped, %5$d errors"
+msgstr "Casella #%1$d: %2$d email trovate, %3$d processate, %4$d saltate, %5$d errori"
