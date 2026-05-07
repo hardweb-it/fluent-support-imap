@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Fluent Support IMAP Fetcher
  * Description: Fetch emails via IMAP and create tickets in Fluent Support, without depending on the remote email piping service.
- * Version: 1.2.0
+ * Version: 1.2.2
  * Author: Hardweb
  * Text Domain: fluent-support-imap
  * Domain Path: /languages
@@ -11,7 +11,7 @@
 
 defined('ABSPATH') || exit;
 
-define('FS_IMAP_VERSION', '1.2.0');
+define('FS_IMAP_VERSION', '1.2.2');
 define('FS_IMAP_PLUGIN_PATH', plugin_dir_path(__FILE__));
 define('FS_IMAP_PLUGIN_URL', plugin_dir_url(__FILE__));
 

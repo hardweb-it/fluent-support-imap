@@ -6,10 +6,8 @@ use FluentSupport\App\Models\Attachment;
 use FluentSupport\App\Models\Conversation;
 use FluentSupport\App\Models\Customer;
 use FluentSupport\App\Models\MailBox;
-use FluentSupport\App\Models\Meta;
 use FluentSupport\App\Models\Ticket;
 use FluentSupport\App\Services\Helper;
-use FluentSupport\Framework\Support\Arr;
 
 class EmailProcessor
 {
@@ -110,10 +108,10 @@ class EmailProcessor
             return new \WP_Error('ticket_creation_error', __('Ticket creation error', 'fluent-support-imap'));
         }
 
-        // Salva CC
+        // Salva CC (usa il pattern ufficiale di Fluent Support: ticket settings, non meta)
         if (!empty($ccEmails)) {
-            $ticket->updateMeta('cc_email', $ccEmails);
-            $ticket->updateMeta('all_cc_email', $ccEmails);
+            $ticket->updateSettingsValue('cc_email', $ccEmails);
+            $ticket->updateSettingsValue('all_cc_email', $ccEmails);
         }
 
         // Gestisci allegati
@@ -173,13 +171,17 @@ class EmailProcessor
         ];
         Ticket::where('id', $ticket->id)->update($updateData);
 
-        // Aggiorna CC
+        // Aggiorna CC (usa il pattern ufficiale di Fluent Support:
+        // - 'all_cc_email' aggregato sul ticket via settings
+        // - 'cc_email' della singola response sulla conversation via settings)
         if (!empty($ccEmails)) {
-            $existingCc = $ticket->getMeta('all_cc_email', []);
-            if (is_array($existingCc)) {
-                $ccEmails = array_unique(array_merge($existingCc, $ccEmails));
+            $existingCc = $ticket->getSettingsValue('all_cc_email', []);
+            if (!is_array($existingCc)) {
+                $existingCc = [];
             }
-            $ticket->updateMeta('all_cc_email', $ccEmails);
+            $mergedCc = array_unique(array_merge($existingCc, $ccEmails));
+            $ticket->updateSettingsValue('all_cc_email', $mergedCc);
+            $response->updateSettingsValue('cc_email', $ccEmails);
         }
 
         // Gestisci allegati
@@ -462,33 +464,5 @@ class EmailProcessor
         }
 
         Helper::updateOption('_fs_imap_processed_ids', $processed);
-    }
-
-    /**
-     * Helper per aggiornare meta del ticket (compatibile con free).
-     */
-    private static function updateTicketMeta($ticket, $key, $value)
-    {
-        if (method_exists($ticket, 'updateMeta')) {
-            return $ticket->updateMeta($key, $value);
-        }
-
-        // Fallback manuale
-        $existing = Meta::where('object_type', 'ticket_meta')
-            ->where('object_id', $ticket->id)
-            ->where('key', $key)
-            ->first();
-
-        if ($existing) {
-            $existing->value = maybe_serialize($value);
-            $existing->save();
-        } else {
-            Meta::create([
-                'object_type' => 'ticket_meta',
-                'object_id'   => $ticket->id,
-                'key'         => $key,
-                'value'       => maybe_serialize($value),
-            ]);
-        }
     }
 }

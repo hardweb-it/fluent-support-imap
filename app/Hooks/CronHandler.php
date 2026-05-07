@@ -120,12 +120,20 @@ class CronHandler
                 $errorCode = $result->get_error_code();
                 if (in_array($errorCode, ['duplicate', 'duplicate_content', 'duplicate_response', 'self_email'])) {
                     $skipped++;
-                    // Segna comunque come letta per non riprocessarla
+                    // Skip "innocui": marchiamo come letta per non riprocessarli al prossimo cron.
                     $connector->markAsRead($email['msg_num']);
                 } else {
                     $errors++;
+                    // Errore reale: NON marchiamo come letta cosi' al prossimo cron riprovi.
+                    // Inoltre rimuoviamo difensivamente \Seen nel caso il server abbia ignorato FT_PEEK.
+                    $connector->unmarkAsRead($email['msg_num']);
                     ImapLogger::log(
-                        sprintf(__('Email processing error: %s', 'fluent-support-imap'), $result->get_error_message()),
+                        sprintf(
+                            /* translators: 1: error message, 2: imap message number */
+                            __('Email processing error (msg #%2$d kept as unread for retry): %1$s', 'fluent-support-imap'),
+                            $result->get_error_message(),
+                            $email['msg_num']
+                        ),
                         'error',
                         $box->id
                     );
@@ -133,7 +141,7 @@ class CronHandler
                 continue;
             }
 
-            // Segna come letta
+            // Successo: marchiamo come letta solo ora.
             $connector->markAsRead($email['msg_num']);
             $processed++;
         }

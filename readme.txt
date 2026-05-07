@@ -4,7 +4,7 @@ Tags: fluent-support, imap, email, tickets, helpdesk
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -119,6 +119,18 @@ You can set up a real server-side cron job to call `wp-cron.php` at your desired
 
 == Changelog ==
 
+= 1.2.2 =
+* Fix: emails are now marked as read on the IMAP server **only** after the ticket/response is successfully created. Previously, a processing error could leave the email marked as read while no ticket existed, making the message effectively lost.
+* Add `FT_PEEK` flag to all `imap_fetchbody()` calls so reading the message body no longer auto-sets the `\Seen` flag server-side.
+* Defensively clear the `\Seen` flag (`imap_clearflag_full`) on processing errors, in case a server ignores `FT_PEEK`.
+* Cron log on errors now reports the IMAP message number and clarifies that the message is kept as unread for retry.
+
+= 1.2.1 =
+* Fix: compatibility with Fluent Support 2.1.x — the IMAP processor was calling `Ticket::getMeta()` / `Ticket::updateMeta()`, which do not exist on the `Ticket` model and caused a fatal error during fetch (`Call to undefined method FluentSupport\App\Models\Ticket::getMeta()`).
+* Replaced ticket-level CC storage with the canonical Fluent Support pattern (`getSettingsValue` / `updateSettingsValue`), aligned with `ByMailHandler` of Fluent Support Pro.
+* CC of a single response is now correctly stored on the conversation, not on the ticket.
+* Removed the dead `updateTicketMeta()` helper and unused `Meta` import in `EmailProcessor`.
+
 = 1.2.0 =
 * Initial public release
 * Direct IMAP connection with SSL/TLS support
@@ -133,6 +145,12 @@ You can set up a real server-side cron job to call `wp-cron.php` at your desired
 * Full i18n support with Italian translation
 
 == Upgrade Notice ==
+
+= 1.2.2 =
+Critical fix: emails are no longer marked as read on the IMAP server when ticket creation fails — failed messages are kept unread and retried at the next cron tick.
+
+= 1.2.1 =
+Critical fix: restores compatibility with Fluent Support 2.1.x (CC handling no longer triggers a fatal `Ticket::getMeta()` error).
 
 = 1.2.0 =
 Initial release. No upgrade steps required.

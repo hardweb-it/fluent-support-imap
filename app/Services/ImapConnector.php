@@ -172,6 +172,19 @@ class ImapConnector
         return imap_setflag_full($this->connection, (string) $msgNum, '\\Seen');
     }
 
+    /**
+     * Ripristina lo stato non-letto del messaggio.
+     * Usato come safety-net quando il processing fallisce, nel caso il server
+     * abbia marcato il messaggio come \Seen ignorando FT_PEEK.
+     */
+    public function unmarkAsRead($msgNum)
+    {
+        if (!$this->connection) {
+            return false;
+        }
+        return imap_clearflag_full($this->connection, (string) $msgNum, '\\Seen');
+    }
+
     public function disconnect()
     {
         if ($this->connection) {
@@ -237,9 +250,9 @@ class ImapConnector
 
     private function getBody($structure, $msgNum, $partNum = '')
     {
-        // Simple (non-multipart)
+        // Simple (non-multipart). FT_PEEK evita che il server marchi il messaggio come \Seen.
         if (!isset($structure->parts) || !$structure->parts) {
-            $body = imap_fetchbody($this->connection, $msgNum, $partNum ?: '1');
+            $body = imap_fetchbody($this->connection, $msgNum, $partNum ?: '1', FT_PEEK);
             return $this->decodeBodyPart($body, $structure);
         }
 
@@ -268,7 +281,7 @@ class ImapConnector
             $subtype = strtolower($part->subtype ?? '');
 
             if ($part->type === 0) { // TEXT
-                $partBody = imap_fetchbody($this->connection, $msgNum, $currentPartNum);
+                $partBody = imap_fetchbody($this->connection, $msgNum, $currentPartNum, FT_PEEK);
                 $decoded = $this->decodeBodyPart($partBody, $part);
 
                 if ($subtype === 'plain' && !$textBody) {
@@ -407,8 +420,8 @@ class ImapConnector
                 $filename = 'attachment_' . ($index + 1);
             }
 
-            // Scarica il contenuto
-            $content = imap_fetchbody($this->connection, $msgNum, $currentPartNum);
+            // Scarica il contenuto. FT_PEEK evita che il server marchi il messaggio come \Seen.
+            $content = imap_fetchbody($this->connection, $msgNum, $currentPartNum, FT_PEEK);
 
             $encoding = $part->encoding ?? 0;
             if ($encoding === 3) { // BASE64

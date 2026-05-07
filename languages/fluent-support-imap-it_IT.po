@@ -2,7 +2,7 @@
 # Copyright (C) 2026 Hardweb
 msgid ""
 msgstr ""
-"Project-Id-Version: Fluent Support IMAP Fetcher 1.2.0\n"
+"Project-Id-Version: Fluent Support IMAP Fetcher 1.2.2\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2026-04-08 10:00+0200\n"
 "Last-Translator: Hardweb\n"
